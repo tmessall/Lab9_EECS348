@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="practice2.css">
+    </head>
+    <body>
+        <p id="errormsg" style="color:red"></p>
+        <form id="pform">
+            <label>Password:</label>
+            <input id="pword" type="password"><br><br>
+            <label>Re-enter password:</label>
+            <input id="pwordtwo" type="password"><br><br>
+            <button onclick="checkFunc()">Submit</button>
+        </form>
+        <p id="goodmsg" style="color:green"></p>
+    </body>
+    <script>
+        var pform = document.getElementById("pform");
+        function handleForm(event) { event.preventDefault(); } 
+        pform.addEventListener('submit', handleForm);
+        
+        function checkFunc() {
+            document.getElementById("errormsg").innerHTML = ""
+            var pword = document.getElementById("pword").value;
+            var pwordtwo = document.getElementById("pwordtwo").value;
+            if (pword.length < 8) {
+                document.getElementById("errormsg").innerHTML = "The password must be at least eight characters in length."
+            } else if (pword != pwordtwo) {
+                document.getElementById("errormsg").innerHTML = "The passwords do not match."
+            } else {
+                document.getElementById("goodmsg").innerHTML = "The passwords match!"
+            }
+        }
+    </script>
+</html>

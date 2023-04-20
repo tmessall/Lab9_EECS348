@@ -1,0 +1,29 @@
+h1 {
+    text-align: center;
+}
+
+#titlediv {
+    border-style: dashed;
+    border-width: 2px;
+    border-color: cyan;
+    color: blue;
+}
+
+.column {
+    float: left;
+    width: 33.33%;
+    padding-bottom: 20px;
+}
+
+ul {
+    list-style-position: inside;
+}
+
+#imgcol {
+    text-align: center;
+}
+
+#myvid {
+    padding-top: 20px;
+    text-align: center;
+}

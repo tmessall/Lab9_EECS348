@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="practice2.css">
+    </head>
+    <body>
+        <div id="dummydiv">
+            <p id="dummytext">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </div>
+            <div class="column">
+            <p>Paragraph</p>
+            <form id="parform">
+                <label>Red:</label>
+                <input><br><br>
+                <label>Green:</label>
+                <input><br><br>
+                <label>Blue:</label>
+                <input><br><br>
+                <button onclick="parFunc()">Submit</button>
+            </form>
+        </div>
+        <div class="column">
+            <p>Border</p>
+            <form id = "borform">
+                <label>Red:</label>
+                <input><br><br>
+                <label>Green:</label>
+                <input><br><br>
+                <label>Blue:</label>
+                <input><br><br>
+                <label>Width:</label>
+                <input><br><br>
+                <button onclick="borFunc()">Submit</button>
+            </form>
+        </div>
+    </body>
+    <script>
+        var parform = document.getElementById("parform");
+        var borform = document.getElementById("borform");
+        function handleForm(event) { event.preventDefault(); } 
+        parform.addEventListener('submit', handleForm);
+        borform.addEventListener('submit', handleForm);
+
+        function parFunc() {
+            var colors = [];
+            for (var i = 0; i < parform.length; i++) {
+                colors[i] = parform.elements[i].value;
+            }
+            var dummytext = document.getElementById("dummytext");
+            dummytext.style.color = `rgb(${colors[0]}, ${colors[1]}, ${colors[2]})`;
+        }
+
+        function borFunc() {
+            var colors = [];
+            for (var i = 0; i < borform.length; i++) {
+                colors[i] = borform.elements[i].value;
+            }
+            var inpWidth = borform.elements[3].value;
+            var dummydiv = document.getElementById("dummydiv");
+            dummydiv.style.borderColor = `rgb(${colors[0]}, ${colors[1]}, ${colors[2]})`;
+            dummydiv.style.borderWidth = `${inpWidth}px`
+        }
+    </script>
+</html>
